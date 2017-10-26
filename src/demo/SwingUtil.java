@@ -1,6 +1,7 @@
 package demo;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -17,6 +18,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+
+import javafx.scene.shape.Box;
 
 
 /**
@@ -133,8 +136,10 @@ public class SwingUtil {
 		frame.getContentPane().add(new JScrollPane(picturePanel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED), BorderLayout.CENTER);
 
 		picturePanel.add(new JLabel(new ImageIcon(original)));
+		picturePanel.add(javax.swing.Box.createRigidArea(new Dimension(0, 10)));
 		for (Image image : images) {
 			picturePanel.add(new JLabel(new ImageIcon(image)));
+			picturePanel.add(javax.swing.Box.createRigidArea(new Dimension(0, 10)));
 		}
 		
 		frame.pack();

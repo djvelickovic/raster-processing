@@ -48,6 +48,10 @@ public class Transformation implements ITransformationInvoker {
 	
 	@Override
 	public WritableRaster transform(WritableRaster source) {
+		return transform(source, null);
+	}
+	
+	public WritableRaster transform(WritableRaster source, ITransformationListener transformationListener) {
 		if (source == null) {
 			throw new IllegalArgumentException();
 		}
@@ -55,6 +59,9 @@ public class Transformation implements ITransformationInvoker {
 		LinkedList<ITransformationInvoker> safeCopy = new LinkedList<>(transformationList);
 		for (ITransformationInvoker transformationInvoker : safeCopy) {
 			midRaster = transformationInvoker.transform(midRaster);
+			if(transformationListener != null) { 
+				transformationListener.action(transformationInvoker, midRaster);
+			}
 		}
 		return midRaster;
 	}
