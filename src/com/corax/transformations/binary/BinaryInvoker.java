@@ -5,20 +5,45 @@ import java.awt.image.WritableRaster;
 import com.corax.transformations.callers.ITransformationInvoker;
 import com.corax.transformations.grayscale.GrayscaleType;
 
+/**
+ * Invoker of algorithm for binary transformation
+ * 
+ * @author Corax
+ *
+ */
 public class BinaryInvoker implements ITransformationInvoker {
 	public static final IBinary DEFAULT_BINARY = new Binary();
 	
+	// light RGB
 	private int lr;
 	private int lg;
 	private int lb;
+	
+	// dark RGB
 	private int dr;
 	private int dg;
 	private int db;
+	
+	// percent of DARK/LIGHT color
 	private float binaryPercent;
+	
 	private GrayscaleType grayscaleType;
 	
 	private IBinary binAlgorithm;
 	
+	/**
+	 * Constructor
+	 * 
+	 * @param binAlgorithm
+	 * @param binaryPercent
+	 * @param grayscaleType
+	 * @param dr
+	 * @param dg
+	 * @param db
+	 * @param lr
+	 * @param lg
+	 * @param lb
+	 */
 	public BinaryInvoker(IBinary binAlgorithm, float binaryPercent,
 			GrayscaleType grayscaleType,int dr, int dg, int db, int lr, int lg, int lb ) {
 		super();
@@ -44,15 +69,38 @@ public class BinaryInvoker implements ITransformationInvoker {
 		this.binAlgorithm = binAlgorithm;
 	}
 
+	/**
+	 * Constructor
+	 * 
+	 * @param binaryPercent
+	 * @param grayscaleType
+	 * @param dr
+	 * @param dg
+	 * @param db
+	 * @param lr
+	 * @param lg
+	 * @param lb
+	 */
 	public BinaryInvoker(float binaryPercent,
 			GrayscaleType grayscaleType,int dr, int dg, int db, int lr, int lg, int lb ) {
 		this(DEFAULT_BINARY, binaryPercent, grayscaleType, dr, dg, db, lr, lg, lb);
 	}
 	
+	/**
+	 * Constructor 
+	 * 
+	 * @param binaryPercent
+	 * @param grayscaleType
+	 */
 	public BinaryInvoker(float binaryPercent, GrayscaleType grayscaleType) {
 		this(binaryPercent, grayscaleType, 0,0,0,255,255,255);
 	}
 	
+	/**
+	 * Constructor 
+	 * 
+	 * @param binaryPercent
+	 */
 	public BinaryInvoker(float binaryPercent) {
 		this(binaryPercent, GrayscaleType.LUMINOSITY);
 	}

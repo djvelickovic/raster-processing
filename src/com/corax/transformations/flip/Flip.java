@@ -3,6 +3,12 @@ package com.corax.transformations.flip;
 import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
 
+/**
+ * Algorithm for Flip transformation
+ * 
+ * @author Corax
+ *
+ */
 class Flip implements IFlip {
 	
 	public Flip() {}

@@ -5,6 +5,13 @@ import java.awt.image.WritableRaster;
 
 import com.corax.transformations.grayscale.GrayscaleType;
 
+/**
+ * 
+ * Algorithm for binary transformation
+ * 
+ * @author Corax
+ *
+ */
 class Binary implements IBinary{
 	
 

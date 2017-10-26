@@ -51,6 +51,13 @@ public class Transformation implements ITransformationInvoker {
 		return transform(source, null);
 	}
 	
+	/**
+	 * Transforms raster
+	 * 
+	 * @param source
+	 * @param transformationListener
+	 * @return
+	 */
 	public WritableRaster transform(WritableRaster source, ITransformationListener transformationListener) {
 		if (source == null) {
 			throw new IllegalArgumentException();
