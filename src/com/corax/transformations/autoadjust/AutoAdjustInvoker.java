@@ -6,6 +6,7 @@ import com.corax.transformations.callers.ITransformationInvoker;
 
 public class AutoAdjustInvoker implements ITransformationInvoker {
 	public static final IAutoAdjust DEFAULT_AUTOADJUST = new AutoAdjust();
+	public static final IAutoAdjust DEFAULT_RGBAUTOADJUST = new RGBAutoAdjust();
 	
 	private IAutoAdjust autoAdjust;
 	private float percent;
@@ -22,7 +23,7 @@ public class AutoAdjustInvoker implements ITransformationInvoker {
 
 
 	public AutoAdjustInvoker(float percent) {
-		this(DEFAULT_AUTOADJUST, percent);
+		this(DEFAULT_RGBAUTOADJUST, percent);
 	}
 
 

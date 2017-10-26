@@ -25,12 +25,6 @@ public class MatrixSharpen implements ISharpen {
 			{ -intensity, -intensity, -intensity }
 		};
 		
-//		float matrix[][] = 
-//			{
-//				{ 0, 0, 0 },
-//				{ 0, 1, 0 },
-//				{ 0, 0, 0 }
-//			};
 		
 		for(int y = 1; y < source.getHeight() - 1; y++)
 		{
