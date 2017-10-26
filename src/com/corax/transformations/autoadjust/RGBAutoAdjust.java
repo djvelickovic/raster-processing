@@ -109,10 +109,6 @@ public class RGBAutoAdjust implements IAutoAdjust {
 			}
 		}
 		
-		System.out.println("Range R: " + leftBoundR + " -> " + rightBoundR);
-		System.out.println("Range G: " + leftBoundG + " -> " + rightBoundG);
-		System.out.println("Range B: " + leftBoundB + " -> " + rightBoundB);
-	
 		double scaleR = 255.0 / (rightBoundR - leftBoundR);
 		double scaleG = 255.0 / (rightBoundG - leftBoundG);
 		double scaleB = 255.0 / (rightBoundB - leftBoundB);
