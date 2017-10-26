@@ -1,6 +1,5 @@
 package com.corax.transformations.manager;
 
-import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
 import java.util.LinkedList;
 
@@ -48,16 +47,16 @@ public class Transformation implements ITransformationInvoker {
 	}
 	
 	@Override
-	public WritableRaster transform(Raster source) {
+	public WritableRaster transform(WritableRaster source) {
 		if (source == null) {
 			throw new IllegalArgumentException();
 		}
-		Raster midRaster = source;
+		WritableRaster midRaster = source;
 		LinkedList<ITransformationInvoker> safeCopy = new LinkedList<>(transformationList);
 		for (ITransformationInvoker transformationInvoker : safeCopy) {
 			midRaster = transformationInvoker.transform(midRaster);
 		}
-		return midRaster.createCompatibleWritableRaster();
+		return midRaster;
 	}
 	
 	

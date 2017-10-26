@@ -4,5 +4,5 @@ import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
 
 public interface ITransformationInvoker {
-	public WritableRaster transform(Raster source);
+	public WritableRaster transform(WritableRaster source);
 }
