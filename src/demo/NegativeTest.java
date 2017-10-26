@@ -16,6 +16,8 @@ public class NegativeTest {
 		NegativeInvoker negativeInvoker = new NegativeInvoker();
 		WritableRaster r = negativeInvoker.transform(image.getRaster());
 		
+		
+		
 		SwingUtil.showImages(image,SwingUtil.rasterToImage(r,image2.getColorModel()));
 		
 	}

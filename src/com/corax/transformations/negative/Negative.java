@@ -9,7 +9,7 @@ import java.awt.image.WritableRaster;
  * @author Corax
  *
  */
-public class Negative implements INegative {
+class Negative implements INegative {
 
 	@Override
 	public WritableRaster negative(Raster raster) {

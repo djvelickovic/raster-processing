@@ -3,7 +3,7 @@ package com.corax.transformations.grayscale;
 import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
 
-public class Grayscale implements IGrayscale {
+class Grayscale implements IGrayscale {
 
 	@Override
 	public WritableRaster grayscale(Raster raster,GrayscaleType grayscaleType) {

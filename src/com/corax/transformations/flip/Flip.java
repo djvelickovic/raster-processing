@@ -3,7 +3,7 @@ package com.corax.transformations.flip;
 import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
 
-public class Flip implements IFlip {
+class Flip implements IFlip {
 	
 	public Flip() {}
 	
