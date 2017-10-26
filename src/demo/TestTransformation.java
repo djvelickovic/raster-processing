@@ -2,7 +2,6 @@ package demo;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ public class TestTransformation {
 		
 		
 		
-		WritableRaster r = transformation.transform(image.getRaster(),new ITransformationListener() {
+		transformation.transform(image.getRaster(),new ITransformationListener() {
 			
 			@Override
 			public void action(ITransformationInvoker transformationInvoker, WritableRaster result) {

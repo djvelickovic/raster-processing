@@ -16,8 +16,6 @@ public class BinaryTest {
 
 		BufferedImage image = SwingUtil.loadImage(TestCommons.IMAGE_FILE);
 
-		BufferedImage image2 = SwingUtil.loadImage(TestCommons.IMAGE_FILE);
-
 		List<Image> images = new ArrayList<>();
 
 		float step = 0.1f;
