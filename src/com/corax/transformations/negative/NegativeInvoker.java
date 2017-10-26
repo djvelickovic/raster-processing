@@ -1,6 +1,7 @@
 package com.corax.transformations.negative;
 
 import java.awt.image.Raster;
+import java.awt.image.WritableRaster;
 
 import com.corax.transformations.callers.ITransformationInvoker;
 
@@ -33,7 +34,7 @@ public class NegativeInvoker implements ITransformationInvoker {
 	
 
 	@Override
-	public Raster transform(Raster source) {
+	public WritableRaster transform(Raster source) {
 		if (source == null) {
 			throw new IllegalArgumentException();
 		}

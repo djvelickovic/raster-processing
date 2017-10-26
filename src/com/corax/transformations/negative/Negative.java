@@ -12,7 +12,7 @@ import java.awt.image.WritableRaster;
 public class Negative implements INegative {
 
 	@Override
-	public Raster negative(Raster raster) {
+	public WritableRaster negative(Raster raster) {
 		
 		if (raster == null) {
 			throw new IllegalArgumentException();

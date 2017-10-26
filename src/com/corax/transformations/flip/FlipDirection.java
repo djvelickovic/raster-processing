@@ -13,14 +13,14 @@ public enum FlipDirection {
 
 		@Override
 		public void setPixel(WritableRaster target, int x, int y, int[] rgb) {
-			target.setPixel(target.getWidth() - x, y, rgb);
+			target.setPixel(target.getWidth() - x - 1, y, rgb);
 		}
 	},
 	VERTICAL {
 
 		@Override
 		public void setPixel(WritableRaster target, int x, int y, int[] rgb) {
-			target.setPixel(x, target.getHeight() - y, rgb);
+			target.setPixel(x, target.getHeight() - y - 1, rgb);
 		}
 	};
 	private FlipDirection() {}

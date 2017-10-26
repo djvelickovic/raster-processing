@@ -8,7 +8,7 @@ public class Flip implements IFlip {
 	public Flip() {}
 	
 	@Override
-	public Raster flip(Raster raster, FlipDirection flipDirection) {
+	public WritableRaster flip(Raster raster, FlipDirection flipDirection) {
 		if (raster == null || flipDirection == null) {
 			throw new IllegalArgumentException();
 		}

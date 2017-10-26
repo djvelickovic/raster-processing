@@ -1,6 +1,7 @@
 package com.corax.transformations.flip;
 
 import java.awt.image.Raster;
+import java.awt.image.WritableRaster;
 
 /**
  * Interface of flip transformation
@@ -14,5 +15,5 @@ public interface IFlip {
 	 * @param flipDirection
 	 * @return
 	 */
-	Raster flip(Raster raster,FlipDirection flipDirection);
+	WritableRaster flip(Raster raster,FlipDirection flipDirection);
 }

@@ -1,6 +1,7 @@
 package com.corax.transformations.flip;
 
 import java.awt.image.Raster;
+import java.awt.image.WritableRaster;
 
 import com.corax.transformations.callers.ITransformationInvoker;
 
@@ -42,7 +43,7 @@ public class FlipInvoker implements ITransformationInvoker {
 	}
 
 	@Override
-	public Raster transform(Raster raster) {
+	public WritableRaster transform(Raster raster) {
 		return flip.flip(raster,flipDirection);	
 	}
 }

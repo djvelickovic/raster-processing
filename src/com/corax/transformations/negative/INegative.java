@@ -1,6 +1,7 @@
 package com.corax.transformations.negative;
 
 import java.awt.image.Raster;
+import java.awt.image.WritableRaster;
 
 /**
  * Interface for negative transformation
@@ -15,5 +16,5 @@ public interface INegative {
 	 * @param raster
 	 * @return new object of negative raster
 	 */
-	Raster negative(Raster raster);
+	WritableRaster negative(Raster raster);
 }
