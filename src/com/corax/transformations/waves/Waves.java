@@ -2,7 +2,7 @@ package com.corax.transformations.waves;
 
 import java.awt.image.WritableRaster;
 
-import com.corax.transformations.sampling.SamplingType;
+import com.corax.transformations.SamplingUtils;
 
 public class Waves implements IWaves {
 
@@ -26,7 +26,7 @@ public class Waves implements IWaves {
 				
 				
 				// Koristimo deformisane koordinate za citanje bilinearnog uzorka
-				SamplingType.BILINEAR.calculateRGB(source, srcX, srcY, rgb);
+				SamplingUtils.bilSample(source, srcX, srcY, rgb);
 				target.setPixel(x, y, rgb);
 			}
 		}

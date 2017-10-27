@@ -2,6 +2,7 @@ package com.corax.transformations.fisheye;
 
 import java.awt.image.WritableRaster;
 
+import com.corax.transformations.SamplingUtils;
 import com.corax.transformations.sampling.SamplingType;
 
 class Fisheye implements IFisheye{
@@ -36,7 +37,7 @@ class Fisheye implements IFisheye{
 				float srcX = centerX + (float)(Math.cos(angle) * distance);
 				float srcY = centerY + (float)(Math.sin(angle) * distance);
 				
-				SamplingType.BILINEAR.calculateRGB(source, srcX, srcY, rgb);
+				SamplingUtils.bilSample(source, srcX, srcY, rgb);
 				target.setPixel(x, y, rgb);
 			}
 		}

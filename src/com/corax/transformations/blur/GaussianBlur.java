@@ -4,7 +4,7 @@ import java.awt.image.WritableRaster;
 
 import com.corax.transformations.TransformationUtils;
 
-public class GaussianBlur implements IBlur {
+class GaussianBlur implements IBlur {
 
 	@Override
 	public WritableRaster blur(WritableRaster source, int radius) {

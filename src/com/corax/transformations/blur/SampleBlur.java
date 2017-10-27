@@ -5,7 +5,7 @@ import java.awt.image.WritableRaster;
 import com.corax.transformations.SamplingUtils;
 
 public class SampleBlur implements IBlur {
-
+	private static final int SAMPLE_CNT = 32;
 	@Override
 	public WritableRaster blur(WritableRaster source, int blurPower) {
 		if (source == null || blurPower < 0) {
@@ -18,8 +18,6 @@ public class SampleBlur implements IBlur {
 
 		int radius = blurPower;
 
-		int sampleCount = blurPower * 3;
-
 		int width = source.getWidth();
 		int height = source.getHeight();
 
@@ -29,7 +27,7 @@ public class SampleBlur implements IBlur {
 				accum[1] = 0;
 				accum[2] = 0;
 
-				for (int i = 0; i < sampleCount; i++) {
+				for (int i = 0; i < SAMPLE_CNT; i++) {
 					float X = (float) (Math.random() - 0.5) * radius * 2.0f;
 					float Y = (float) (Math.random() - 0.5) * radius * 2.0f;
 
@@ -40,9 +38,9 @@ public class SampleBlur implements IBlur {
 					accum[2] += rgb[2];
 				}
 
-				rgb[0] = accum[0] / sampleCount;
-				rgb[1] = accum[1] / sampleCount;
-				rgb[2] = accum[2] / sampleCount;
+				rgb[0] = accum[0] / SAMPLE_CNT;
+				rgb[1] = accum[1] / SAMPLE_CNT;
+				rgb[2] = accum[2] / SAMPLE_CNT;
 
 				target.setPixel(x, y, rgb);
 			}

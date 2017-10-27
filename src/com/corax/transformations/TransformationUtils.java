@@ -1,11 +1,5 @@
 package com.corax.transformations;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.net.URL;
-
-import javax.imageio.ImageIO;
-
 public class TransformationUtils {
 
 	public static int clamp(int value, int min, int max) {
