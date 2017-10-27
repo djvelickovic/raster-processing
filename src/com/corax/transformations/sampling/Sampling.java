@@ -2,7 +2,7 @@ package com.corax.transformations.sampling;
 
 import java.awt.image.WritableRaster;
 
-import com.corax.transformations.TransformationUtils;
+import com.corax.transformations.RasterUtils;
 
 class Sampling implements ISampling {
 
@@ -16,7 +16,7 @@ class Sampling implements ISampling {
 		int sourceW = raster.getWidth();
 		int sourceH = raster.getHeight();
 				
-		WritableRaster target = TransformationUtils.createRaster(scaleW, scaleH);		
+		WritableRaster target = RasterUtils.createRaster(scaleW, scaleH);		
 		int rgb[] = new int[3];
 		
 		for(int y = 0; y < scaleH; y++)

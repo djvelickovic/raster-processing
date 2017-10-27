@@ -1,7 +1,6 @@
 package com.corax.transformations;
 
 import java.awt.image.BufferedImage;
-import java.awt.image.WritableRaster;
 import java.io.File;
 import java.net.URL;
 
@@ -21,50 +20,6 @@ public class TransformationUtils {
 		return clamp(value, 0, 255);
 	}
 
-	public static WritableRaster createRaster(int width, int height) {
-		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
-		return image.getRaster();
-	}
-
-	public static WritableRaster createRasterWithAlpha(int width, int height) {
-		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_4BYTE_ABGR);
-		return image.getRaster();
-	}
-
-	public static BufferedImage rasterToImage(WritableRaster raster) {
-		BufferedImage image = null;
-		switch (raster.getNumBands()) {
-		case 3: // rgb
-			image = new BufferedImage(raster.getWidth(), raster.getHeight(), BufferedImage.TYPE_3BYTE_BGR);
-			image.setData(raster);
-			break;
-		case 4: // rgba
-			image = new BufferedImage(raster.getWidth(), raster.getHeight(), BufferedImage.TYPE_4BYTE_ABGR);
-			image.setData(raster);
-			break;
-		default:
-			throw new RuntimeException("Invalid type of raster!");
-		}
-		return image;
-	}
-
-	public static BufferedImage loadImage(String fileName) {
-		BufferedImage image = null;
-		try {
-			if (fileName.startsWith("/")) {
-				fileName = fileName.substring(1);
-				URL imgURL = ClassLoader.getSystemResource(fileName);
-				image = ImageIO.read(imgURL.toURI().toURL());
-			} else {
-				image = ImageIO.read(new File(fileName));
-			}
-		} catch (Exception e) {
-			System.err.println("Error loading: "+fileName);
-		}
-		return image;
-	}
-	
-	
 	/**
 	 * Linear interpolation between two RGB colors
 	 * @param a starting color
@@ -218,5 +173,72 @@ public class TransformationUtils {
 		return value;
 	}
 	
-
+	
+	public static int lerp(int a, int b, float x){
+		return (int)(a + (b - a) * x);
+	}
+	
+	/**
+	 * Linear interpolation between two float numbers
+	 * @param a 
+	 * @param b 
+	 * @param x 
+	 * @return 
+	 */
+	public static float lerp(float a, float b, float x){
+		return a + (b - a) * x;
+	}
+	
+	/**
+	 * Cosinus interpolation
+	 * @param a 
+	 * @param b 
+	 * @param x 
+	 * @return 
+	 */
+	public static int cosInterpolation(int a, int b, float x)
+	{
+		x = (1.0f - x) * 3.14159265359f;
+		return (int)(a + (b - a) * ((float)Math.cos(x) * 0.5f + 0.5f));
+	}
+	
+	/**
+	 * Cosinus interpolation
+	 * @param a 
+	 * @param b 
+	 * @param x 
+	 * @return 
+	 */
+	public static float cosInterpoplation(float a, float b, float x)
+	{
+		x = (1.0f - x) * 3.14159265359f;
+		return a + (b - a) * ((float)Math.cos(x) * 0.5f + 0.5f);
+	}
+	public static void clampRGB(int[] color)
+	{
+		if(color[0] < 0) color[0] = 0;
+		if(color[1] < 0) color[1] = 0;
+		if(color[2] < 0) color[2] = 0;
+		if(color[0] > 255) color[0] = 255;
+		if(color[1] > 255) color[1] = 255;
+		if(color[2] > 255) color[2] = 255;
+	}
+	
+	/**
+	 * Clamgping rgba between 0 and 255
+	 * @param color niz koji će biti ograničen
+	 */
+	public static void clampRGBA(int[] color)
+	{
+		if(color[0] < 0) color[0] = 0;
+		if(color[1] < 0) color[1] = 0;
+		if(color[2] < 0) color[2] = 0;
+		if(color[3] < 0) color[3] = 0;
+		if(color[0] > 255) color[0] = 255;
+		if(color[1] > 255) color[1] = 255;
+		if(color[2] > 255) color[2] = 255;
+		if(color[3] > 255) color[3] = 255;
+	}
+	
+	
 }

@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -18,6 +19,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import com.corax.transformations.RasterUtils;
 import com.corax.transformations.TransformationUtils;
 
 
@@ -43,9 +45,20 @@ public class SwingUtil {
 	 * @return returns readed buffered image
 	 * @throws IOException
 	 */
-	public static BufferedImage loadImage(String path) throws IOException {
-		File image = new File(path);
-		return loadImage(image);
+	public static BufferedImage loadImage(String fileName) {
+		BufferedImage image = null;
+		try {
+			if (fileName.startsWith("/")) {
+				fileName = fileName.substring(1);
+				URL imgURL = ClassLoader.getSystemResource(fileName);
+				image = ImageIO.read(imgURL.toURI().toURL());
+			} else {
+				image = ImageIO.read(new File(fileName));
+			}
+		} catch (Exception e) {
+			System.err.println("Error loading: "+fileName);
+		}
+		return image;
 	}
 	
 	/**
@@ -54,9 +67,13 @@ public class SwingUtil {
 	 * @return
 	 * @throws IOException
 	 */
-	public static BufferedImage loadImage(File image) throws IOException {
+	public static BufferedImage loadImage(File image) {
 		BufferedImage im = null;
-		im = ImageIO.read(image);
+		try {
+			im = ImageIO.read(image);
+		} catch (Exception e) {
+			System.err.println("Error loading image.");
+		}
 		return im;
 	}
 	
@@ -158,7 +175,7 @@ public class SwingUtil {
 	 * @return
 	 */
 	public static BufferedImage rasterToImage(WritableRaster writableRaster) {
-		return TransformationUtils.rasterToImage(writableRaster);
+		return RasterUtils.rasterToImage(writableRaster);
 	}
 	
 	

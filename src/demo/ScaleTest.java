@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.corax.transformations.TransformationUtils;
+import com.corax.transformations.RasterUtils;
 import com.corax.transformations.callers.ITransformationInvoker;
 import com.corax.transformations.sampling.SamplingInvoker;
 
@@ -24,7 +24,7 @@ public class ScaleTest {
 		images.add(SwingUtil.rasterToImage(r));
 
 		r = invoker1.transform(r);
-		images.add(TransformationUtils.rasterToImage(r));
+		images.add(RasterUtils.rasterToImage(r));
 
 		SwingUtil.showImages(image, images);
 	}

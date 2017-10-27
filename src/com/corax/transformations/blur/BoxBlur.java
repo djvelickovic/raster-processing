@@ -1,13 +1,13 @@
-package com.corax.transformations.boxblur;
+package com.corax.transformations.blur;
 
 import java.awt.image.WritableRaster;
 
 import com.corax.transformations.TransformationUtils;
 
-public class BoxBlur implements IBoxBlur {
+public class BoxBlur implements IBlur {
 
 	@Override
-	public WritableRaster boxBlur(WritableRaster source, int blurPower) {
+	public WritableRaster blur(WritableRaster source, int blurPower) {
 		
 		if (source == null || blurPower < 0) {
 			throw new IllegalArgumentException();
