@@ -23,7 +23,7 @@ public class ContrastTest {
 			ITransformationInvoker invoker = new ContrastInvoker(i * step);
 //			ITransformationInvoker invoker = new ContrastInvoker(1.1f);
 			WritableRaster r = invoker.transform(image.getRaster());
-			brightImages.add(SwingUtil.rasterToImage(r, image.getColorModel()));
+			brightImages.add(SwingUtil.rasterToImage(r));
 		}
 		
 		List<Image> darkImages = new ArrayList<>();
@@ -31,7 +31,7 @@ public class ContrastTest {
 		for (int i = 0; i < 10; i++) {
 			ITransformationInvoker invoker = new ContrastInvoker(i * darkstep);
 			WritableRaster r = invoker.transform(image.getRaster());
-			darkImages.add(SwingUtil.rasterToImage(r, image.getColorModel()));
+			darkImages.add(SwingUtil.rasterToImage(r));
 		}
 		
 		SwingUtil.showImages(image, brightImages);

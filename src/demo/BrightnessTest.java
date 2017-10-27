@@ -23,7 +23,7 @@ public class BrightnessTest {
 		for (int i = 1; i < 10; i++) {
 			ITransformationInvoker invoker = new BrightnessInvoker(i * step);
 			WritableRaster r = invoker.transform(image.getRaster());
-			brightImages.add(SwingUtil.rasterToImage(r, image.getColorModel()));
+			brightImages.add(SwingUtil.rasterToImage(r));
 		}
 		
 		List<Image> darkImages = new ArrayList<>();
@@ -31,7 +31,7 @@ public class BrightnessTest {
 		for (int i = 1; i < 10; i++) {
 			ITransformationInvoker invoker = new BrightnessInvoker(i * darkstep);
 			WritableRaster r = invoker.transform(image.getRaster());
-			darkImages.add(SwingUtil.rasterToImage(r, image.getColorModel()));
+			darkImages.add(SwingUtil.rasterToImage(r));
 		}
 		
 		SwingUtil.showImages(image, brightImages);

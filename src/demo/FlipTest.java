@@ -12,12 +12,10 @@ public class FlipTest {
 		
 		BufferedImage image = SwingUtil.loadImage(TestCommons.IMAGE_FILE);
 		
-		BufferedImage image2 = SwingUtil.loadImage(TestCommons.IMAGE_FILE);
-		
 		FlipInvoker flipInvoker = new FlipInvoker(FlipDirection.HORIZONTAL);
 		WritableRaster r = flipInvoker.transform(image.getRaster());
 		
-		SwingUtil.showImages(image,SwingUtil.rasterToImage(r,image2.getColorModel()));
+		SwingUtil.showImages(image,SwingUtil.rasterToImage(r));
 		
 	}
 }

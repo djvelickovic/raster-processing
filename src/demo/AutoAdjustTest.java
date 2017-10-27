@@ -20,11 +20,11 @@ public class AutoAdjustTest {
 		ITransformationInvoker invoker1 = new AutoAdjustInvoker(AutoAdjustInvoker.DEFAULT_RGBAUTOADJUST,5f);
 		
 		WritableRaster r = invoker.transform(image.getRaster());
-		images.add(SwingUtil.rasterToImage(r, image.getColorModel()));
+		images.add(SwingUtil.rasterToImage(r));
 		
 		r = invoker1.transform(image.getRaster());
-		images.add(SwingUtil.rasterToImage(r, image.getColorModel()));
+		images.add(SwingUtil.rasterToImage(r));
 		
 		SwingUtil.showImages(image, images);
-	}
+	} 
 }

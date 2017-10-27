@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +18,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import com.corax.transformations.TransformationUtils;
+
 
 /**
  * Util class for transformation tests
@@ -28,12 +29,6 @@ import javax.swing.JScrollPane;
  *
  */
 public class SwingUtil {
-	
-	/**
-	 * Default color model
-	 */
-	public static final ColorModel RGB_COLOR_MODEL = ColorModel.getRGBdefault();
-	
 	
 	/**
 	 * Private constructor
@@ -162,12 +157,9 @@ public class SwingUtil {
 	 * @param colorModel
 	 * @return
 	 */
-	public static BufferedImage rasterToImage(WritableRaster writableRaster,ColorModel colorModel) {
-		return new BufferedImage(colorModel, writableRaster, colorModel.isAlphaPremultiplied(), null);
+	public static BufferedImage rasterToImage(WritableRaster writableRaster) {
+		return TransformationUtils.rasterToImage(writableRaster);
 	}
 	
-	public static BufferedImage rasterToImage(WritableRaster writableRaster) {
-		return rasterToImage(writableRaster, RGB_COLOR_MODEL);
-	}
 	
 }

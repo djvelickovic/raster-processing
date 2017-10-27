@@ -21,10 +21,10 @@ public class NoiseTest {
 		ITransformationInvoker invoker1 = new NoiseInvoker(NoiseType.MONOCHROME, 0.6f);
 		
 		WritableRaster r = invoker.transform(image.getRaster());
-		images.add(SwingUtil.rasterToImage(r, image.getColorModel()));
+		images.add(SwingUtil.rasterToImage(r));
 		
 		r = invoker1.transform(image.getRaster());
-		images.add(SwingUtil.rasterToImage(r, image.getColorModel()));
+		images.add(SwingUtil.rasterToImage(r));
 		
 		SwingUtil.showImages(image, images);
 	}

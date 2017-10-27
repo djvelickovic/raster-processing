@@ -22,13 +22,13 @@ public class BinaryTest {
 		for (int i = 1; i < 8; i++) {
 			ITransformationInvoker invoker = new BinaryInvoker(i * step);
 			WritableRaster r = invoker.transform(image.getRaster());
-			images.add(SwingUtil.rasterToImage(r, image.getColorModel()));
+			images.add(SwingUtil.rasterToImage(r));
 		}
 
 		for (int i = 1; i < 8; i++) {
 			ITransformationInvoker invoker = new BinaryInvoker(i * step, GrayscaleType.LUMINOSITY, 40, 60, 80, 255, 55, 100);
 			WritableRaster r = invoker.transform(image.getRaster());
-			images.add(SwingUtil.rasterToImage(r, image.getColorModel()));
+			images.add(SwingUtil.rasterToImage(r));
 		}
 
 		SwingUtil.showImages(image, images);

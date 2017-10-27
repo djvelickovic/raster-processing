@@ -21,10 +21,10 @@ public class VignetteTest {
 		ITransformationInvoker invoker1 = new VignetteInvoker(1f, 0.1f);
 		
 		WritableRaster r = invoker.transform(image.getRaster());
-		images.add(SwingUtil.rasterToImage(r, image.getColorModel()));
+		images.add(SwingUtil.rasterToImage(r));
 		
 		r = invoker1.transform(image.getRaster());
-		images.add(SwingUtil.rasterToImage(r, image.getColorModel()));
+		images.add(SwingUtil.rasterToImage(r));
 		
 		SwingUtil.showImages(image, images);
 	}

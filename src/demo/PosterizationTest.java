@@ -20,7 +20,7 @@ public class PosterizationTest {
 		for (int i = 1; i < 8; i++) {
 			ITransformationInvoker invoker = new PosterizeInvoker(i * step);
 			WritableRaster r = invoker.transform(image.getRaster());
-			images.add(SwingUtil.rasterToImage(r, image.getColorModel()));
+			images.add(SwingUtil.rasterToImage(r));
 		}
 
 		SwingUtil.showImages(image, images);

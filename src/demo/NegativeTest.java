@@ -11,14 +11,12 @@ public class NegativeTest {
 		
 		BufferedImage image = SwingUtil.loadImage(TestCommons.IMAGE_FILE);
 		
-		BufferedImage image2 = SwingUtil.loadImage(TestCommons.IMAGE_FILE);
-		
 		NegativeInvoker negativeInvoker = new NegativeInvoker();
 		WritableRaster r = negativeInvoker.transform(image.getRaster());
 		
 		
 		
-		SwingUtil.showImages(image,SwingUtil.rasterToImage(r,image2.getColorModel()));
+		SwingUtil.showImages(image,SwingUtil.rasterToImage(r));
 		
 	}
 }

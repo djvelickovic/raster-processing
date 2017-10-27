@@ -36,7 +36,7 @@ public class TestTransformation {
 			
 			@Override
 			public void action(ITransformationInvoker transformationInvoker, WritableRaster result) {
-				BufferedImage bi = SwingUtil.rasterToImage(result, image.getColorModel());
+				BufferedImage bi = SwingUtil.rasterToImage(result);
 				images.add(bi);
 			}
 		});
