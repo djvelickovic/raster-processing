@@ -11,7 +11,6 @@ public class DirectionalBlurInvoker implements ITransformationInvoker {
 	private float vecX;
 	private float vecY;
 	
-	
 	public DirectionalBlurInvoker(IDirectionalBlur directionalBlur, float vecX, float vecY) {
 		super();
 		this.directionalBlur = directionalBlur;

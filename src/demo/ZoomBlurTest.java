@@ -22,3 +22,4 @@ public class ZoomBlurTest {
 		SwingUtil.showImages(image, images);
 	}
 }
+	

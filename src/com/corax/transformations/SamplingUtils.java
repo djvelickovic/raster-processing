@@ -3,14 +3,7 @@ package com.corax.transformations;
 import java.awt.image.WritableRaster;
 
 public class SamplingUtils {
-	/**
-	 * Radi point sample (nearest-neighbour) nad rasterom, birajući boju na osnovu zaokruženih (u, v)
-	 * koordinata, sa automatskom provjerom opsega (clamp-to-edge).
-	 * @param src raster iz kog se čita
-	 * @param u horizontalna (X) koordinata u pikselima
-	 * @param v vertikalna (Y) koordinata u pikselima
-	 * @param color niz u koji će biti upisana pročitana boja
-	 */
+	
 	public static void pointSample(WritableRaster src, float u, float v, int[] color)
 	{
 		int x = (int)u;
@@ -22,14 +15,6 @@ public class SamplingUtils {
 		src.getPixel(x, y, color);
 	}
 	
-	/**
-	 * Radi bilinearni sample nad RGBA rasterom, interpolirajući boju na osnovu (u, v)
-	 * koordinata, sa automatskom provjerom opsega (clamp-to-edge).
-	 * @param src raster iz kog se čita
-	 * @param u horizontalna (X) koordinata u pikselima
-	 * @param v vertikalna (Y) koordinata u pikselima
-	 * @param color niz u koji će biti upisana interpolirana boja
-	 */
 	public static void bilSampleA(WritableRaster src, float u, float v, int[] color)
 	{
 		float[] a = new float[4];
