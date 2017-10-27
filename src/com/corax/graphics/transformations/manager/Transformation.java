@@ -48,7 +48,7 @@ public class Transformation implements IProcessingInvoker {
 	
 	@Override
 	public WritableRaster process(WritableRaster source) {
-		return transform(source, null);
+		return process(source, null);
 	}
 	
 	/**
@@ -58,7 +58,7 @@ public class Transformation implements IProcessingInvoker {
 	 * @param transformationListener
 	 * @return
 	 */
-	public WritableRaster transform(WritableRaster source, ITransformationListener transformationListener) {
+	public WritableRaster process(WritableRaster source, ITransformationListener transformationListener) {
 		if (source == null) {
 			throw new IllegalArgumentException();
 		}
