@@ -1,7 +1,9 @@
 package com.corax.graphics.util;
 
-public class TransformationUtils {
+public final class TransformationUtils {
 
+	public TransformationUtils() {}
+	
 	public static int clamp(int value, int min, int max) {
 		if (value < min)
 			return min;

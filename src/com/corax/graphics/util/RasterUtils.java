@@ -4,7 +4,10 @@ import java.awt.image.BufferedImage;
 import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
 
-public class RasterUtils {
+public final class RasterUtils {
+	
+	private RasterUtils() {}
+	
 	public static WritableRaster createRaster(int width, int height) {
 		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
 		return image.getRaster();

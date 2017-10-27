@@ -2,7 +2,9 @@ package com.corax.graphics.util;
 
 import java.awt.image.WritableRaster;
 
-public class SamplingUtils {
+public final class SamplingUtils {
+	
+	private SamplingUtils() {}
 	
 	public static void pointSample(WritableRaster src, float u, float v, int[] color)
 	{
