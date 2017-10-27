@@ -1,13 +1,13 @@
-package com.corax.transformations.scale;
+package com.corax.transformations.sampling;
 
 import java.awt.image.WritableRaster;
 
 import com.corax.transformations.TransformationUtils;
 
-public class Scale implements IScale {
+public class Sampling implements ISampling {
 
 	@Override
-	public WritableRaster scale(WritableRaster raster, int scaleW, int scaleH) {
+	public WritableRaster scale(WritableRaster raster, SamplingType samplingType, int scaleW, int scaleH) {
 		
 		if (raster == null || scaleW <= 0 || scaleH <= 0) {
 			throw new IllegalArgumentException();
@@ -21,18 +21,17 @@ public class Scale implements IScale {
 		
 		for(int y = 0; y < scaleH; y++)
 		{
-			double fy = (double)y / scaleH;
+			float fy = (float)y / scaleH;
 			
 			for(int x = 0; x < scaleW; x++)
 			{
-				double fx = (double)x / scaleW;
+				float fx = (float)x / scaleW;
 				
-				double srcX = fx * sourceW;
-				double srcY = fy * sourceH;
+				float srcX = fx * sourceW;
+				float srcY = fy * sourceH;
 				
-				int pX = TransformationUtils.clamp((int)srcX, 0, sourceW - 1);
-				int pY = TransformationUtils.clamp((int)srcY, 0, sourceH - 1);
-				raster.getPixel(pX, pY, rgb);
+				samplingType.calculateRGB(raster, srcX, srcY, rgb);
+				
 				target.setPixel(x, y, rgb);
 			}
 		}

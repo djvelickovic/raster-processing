@@ -1,7 +1,7 @@
-package com.corax.transformations.scale;
+package com.corax.transformations.sampling;
 
 import java.awt.image.WritableRaster;
 
-public interface IScale {
-	WritableRaster scale(WritableRaster raster, int width, int height);
+public interface ISampling {
+	WritableRaster scale(WritableRaster raster, SamplingType samplingType, int width, int height);
 }

@@ -1,40 +1,43 @@
-package com.corax.transformations.scale;
+package com.corax.transformations.sampling;
 
 import java.awt.image.WritableRaster;
 
 import com.corax.transformations.callers.ITransformationInvoker;
 
-public class ScaleInvoker implements ITransformationInvoker {
-	public static final IScale DEFAULT_SCALE_METHOD = new Scale();
+public class SamplingInvoker implements ITransformationInvoker {
+	public static final ISampling DEFAULT_SCALE_METHOD = new Sampling();
 	
-	private IScale scaleMethod;
+	private ISampling scaleMethod;
+	private SamplingType samplingType;
 	private int width;
 	private int height;
 	
-	public ScaleInvoker(IScale scaleMethod, int width, int height) {
+	public SamplingInvoker(ISampling scaleMethod, SamplingType samplingType, int width, int height) {
 		super();
-		if (scaleMethod == null || width <= 0 || height <= 0) {
+		if (scaleMethod == null || width <= 0 || height <= 0 || samplingType == null) {
 			throw new IllegalArgumentException();
 		}
 		this.scaleMethod = scaleMethod;
 		this.width = width;
 		this.height = height;
+		this.samplingType = samplingType;
 	}
 
 
-	public ScaleInvoker(int width, int height) {
-		this(DEFAULT_SCALE_METHOD, width, height);
+	public SamplingInvoker(SamplingType samplingType, int width, int height) {
+		this(DEFAULT_SCALE_METHOD, samplingType, width, height);
 	}
 
-
-
+	public SamplingInvoker(int width, int height) {
+		this(SamplingType.BILINEAR, width, height);
+	}
 
 	@Override
 	public WritableRaster transform(WritableRaster source) {
 		if (source == null) {
 			throw new IllegalArgumentException();
 		}
-		return scaleMethod.scale(source, width, height);
+		return scaleMethod.scale(source,samplingType, width, height);
 	}
 	
 }
