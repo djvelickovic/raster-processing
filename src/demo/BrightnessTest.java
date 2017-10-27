@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.corax.transformations.brightness.BrightnessInvoker;
-import com.corax.transformations.callers.ITransformationInvoker;
+import com.corax.graphics.callers.IProcessingInvoker;
+import com.corax.graphics.transformations.brightness.BrightnessInvoker;
 
 public class BrightnessTest {
 	public static void main(String[] args) throws IOException {
@@ -21,16 +21,16 @@ public class BrightnessTest {
 		brightImages.add(image);
 		
 		for (int i = 1; i < 10; i++) {
-			ITransformationInvoker invoker = new BrightnessInvoker(i * step);
-			WritableRaster r = invoker.transform(image.getRaster());
+			IProcessingInvoker invoker = new BrightnessInvoker(i * step);
+			WritableRaster r = invoker.process(image.getRaster());
 			brightImages.add(SwingUtil.rasterToImage(r));
 		}
 		
 		List<Image> darkImages = new ArrayList<>();
 		float darkstep = -0.1f;
 		for (int i = 1; i < 10; i++) {
-			ITransformationInvoker invoker = new BrightnessInvoker(i * darkstep);
-			WritableRaster r = invoker.transform(image.getRaster());
+			IProcessingInvoker invoker = new BrightnessInvoker(i * darkstep);
+			WritableRaster r = invoker.process(image.getRaster());
 			darkImages.add(SwingUtil.rasterToImage(r));
 		}
 		

@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
-encoding//src/com/corax/transformations/SamplingUtils.java=UTF-8
-encoding//src/com/corax/transformations/TransformationUtils.java=UTF-8
+encoding//src/com/corax/graphics/util/RasterUtils.java=UTF-8
+encoding//src/com/corax/graphics/util/SamplingUtils.java=UTF-8
+encoding//src/com/corax/graphics/util/TransformationUtils.java=UTF-8

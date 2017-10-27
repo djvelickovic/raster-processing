@@ -7,13 +7,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.corax.transformations.callers.ITransformationInvoker;
-import com.corax.transformations.flip.FlipDirection;
-import com.corax.transformations.flip.FlipInvoker;
-import com.corax.transformations.grayscale.GrayscaleInvoker;
-import com.corax.transformations.manager.ITransformationListener;
-import com.corax.transformations.manager.Transformation;
-import com.corax.transformations.negative.NegativeInvoker;
+import com.corax.graphics.callers.IProcessingInvoker;
+import com.corax.graphics.transformations.flip.FlipDirection;
+import com.corax.graphics.transformations.flip.FlipInvoker;
+import com.corax.graphics.transformations.grayscale.GrayscaleInvoker;
+import com.corax.graphics.transformations.manager.ITransformationListener;
+import com.corax.graphics.transformations.manager.Transformation;
+import com.corax.graphics.transformations.negative.NegativeInvoker;
 
 public class TestTransformation {
 	public static void main(String[] args) throws IOException {
@@ -35,7 +35,7 @@ public class TestTransformation {
 		transformation.transform(image.getRaster(),new ITransformationListener() {
 			
 			@Override
-			public void action(ITransformationInvoker transformationInvoker, WritableRaster result) {
+			public void action(IProcessingInvoker transformationInvoker, WritableRaster result) {
 				BufferedImage bi = SwingUtil.rasterToImage(result);
 				images.add(bi);
 			}

@@ -4,8 +4,8 @@ import java.awt.image.BufferedImage;
 import java.awt.image.WritableRaster;
 import java.io.IOException;
 
-import com.corax.transformations.flip.FlipDirection;
-import com.corax.transformations.flip.FlipInvoker;
+import com.corax.graphics.transformations.flip.FlipDirection;
+import com.corax.graphics.transformations.flip.FlipInvoker;
 
 public class FlipTest {
 	public static void main(String[] args) throws IOException {
@@ -13,7 +13,7 @@ public class FlipTest {
 		BufferedImage image = SwingUtil.loadImage(TestCommons.IMAGE_FILE);
 		
 		FlipInvoker flipInvoker = new FlipInvoker(FlipDirection.HORIZONTAL);
-		WritableRaster r = flipInvoker.transform(image.getRaster());
+		WritableRaster r = flipInvoker.process(image.getRaster());
 		
 		SwingUtil.showImages(image,SwingUtil.rasterToImage(r));
 		

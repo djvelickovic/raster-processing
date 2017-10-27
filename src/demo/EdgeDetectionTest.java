@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.corax.transformations.callers.ITransformationInvoker;
-import com.corax.transformations.edgedetection.EdgeDetectionInvoker;
+import com.corax.graphics.callers.IProcessingInvoker;
+import com.corax.graphics.transformations.edgedetection.EdgeDetectionInvoker;
 
 public class EdgeDetectionTest {
 	public static void main(String[] args) throws IOException {
@@ -19,8 +19,8 @@ public class EdgeDetectionTest {
 
 		
 		for (int i = 1; i < 10; i++) {
-			ITransformationInvoker invoker = new EdgeDetectionInvoker(i);
-			WritableRaster r = invoker.transform(image.getRaster());
+			IProcessingInvoker invoker = new EdgeDetectionInvoker(i);
+			WritableRaster r = invoker.process(image.getRaster());
 			images.add(SwingUtil.rasterToImage(r));
 		}
 		

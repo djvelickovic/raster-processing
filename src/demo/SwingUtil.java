@@ -19,8 +19,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import com.corax.transformations.RasterUtils;
-import com.corax.transformations.TransformationUtils;
+import com.corax.graphics.util.RasterUtils;
+import com.corax.graphics.util.TransformationUtils;
 
 
 /**

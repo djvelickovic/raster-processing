@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.corax.transformations.RasterUtils;
-import com.corax.transformations.callers.ITransformationInvoker;
-import com.corax.transformations.sampling.SamplingInvoker;
+import com.corax.graphics.callers.IProcessingInvoker;
+import com.corax.graphics.transformations.sampling.SamplingInvoker;
+import com.corax.graphics.util.RasterUtils;
 
 public class ScaleTest {
 	public static void main(String[] args) throws IOException {
@@ -17,13 +17,13 @@ public class ScaleTest {
 
 		List<Image> images = new ArrayList<>();
 
-		ITransformationInvoker invoker = new SamplingInvoker(200,100);
-		ITransformationInvoker invoker1 = new SamplingInvoker(800,700);
+		IProcessingInvoker invoker = new SamplingInvoker(200,100);
+		IProcessingInvoker invoker1 = new SamplingInvoker(800,700);
 		
-		WritableRaster r = invoker.transform(image.getRaster());
+		WritableRaster r = invoker.process(image.getRaster());
 		images.add(SwingUtil.rasterToImage(r));
 
-		r = invoker1.transform(r);
+		r = invoker1.process(r);
 		images.add(RasterUtils.rasterToImage(r));
 
 		SwingUtil.showImages(image, images);

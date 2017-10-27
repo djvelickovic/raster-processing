@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.corax.transformations.callers.ITransformationInvoker;
-import com.corax.transformations.vignette.VignetteInvoker;
+import com.corax.graphics.callers.IProcessingInvoker;
+import com.corax.graphics.transformations.vignette.VignetteInvoker;
 
 public class VignetteTest {
 	public static void main(String[] args) throws IOException {
@@ -17,13 +17,13 @@ public class VignetteTest {
 
 		List<Image> images = new ArrayList<>();
 		
-		ITransformationInvoker invoker = new VignetteInvoker();
-		ITransformationInvoker invoker1 = new VignetteInvoker(1f, 0.1f);
+		IProcessingInvoker invoker = new VignetteInvoker();
+		IProcessingInvoker invoker1 = new VignetteInvoker(1f, 0.1f);
 		
-		WritableRaster r = invoker.transform(image.getRaster());
+		WritableRaster r = invoker.process(image.getRaster());
 		images.add(SwingUtil.rasterToImage(r));
 		
-		r = invoker1.transform(image.getRaster());
+		r = invoker1.process(image.getRaster());
 		images.add(SwingUtil.rasterToImage(r));
 		
 		SwingUtil.showImages(image, images);

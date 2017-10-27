@@ -4,7 +4,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.WritableRaster;
 import java.io.IOException;
 
-import com.corax.transformations.negative.NegativeInvoker;
+import com.corax.graphics.transformations.negative.NegativeInvoker;
 
 public class NegativeTest {
 	public static void main(String[] args) throws IOException {
@@ -12,7 +12,7 @@ public class NegativeTest {
 		BufferedImage image = SwingUtil.loadImage(TestCommons.IMAGE_FILE);
 		
 		NegativeInvoker negativeInvoker = new NegativeInvoker();
-		WritableRaster r = negativeInvoker.transform(image.getRaster());
+		WritableRaster r = negativeInvoker.process(image.getRaster());
 		
 		
 		

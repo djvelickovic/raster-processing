@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.corax.transformations.callers.ITransformationInvoker;
-import com.corax.transformations.vignette.VignetteInvoker;
-import com.corax.transformations.waves.WavesInvoker;
+import com.corax.graphics.callers.IProcessingInvoker;
+import com.corax.graphics.transformations.vignette.VignetteInvoker;
+import com.corax.graphics.transformations.waves.WavesInvoker;
 
 public class WavesTest {
 	public static void main(String[] args) throws IOException {
@@ -18,13 +18,13 @@ public class WavesTest {
 
 		List<Image> images = new ArrayList<>();
 		
-		ITransformationInvoker invoker = new WavesInvoker(0.02f, 10.2f);
-		ITransformationInvoker invoker1 = new WavesInvoker(0.2f,10.0f);
+		IProcessingInvoker invoker = new WavesInvoker(0.02f, 10.2f);
+		IProcessingInvoker invoker1 = new WavesInvoker(0.2f,10.0f);
 		
-		WritableRaster r = invoker.transform(image.getRaster());
+		WritableRaster r = invoker.process(image.getRaster());
 		images.add(SwingUtil.rasterToImage(r));
 		
-		r = invoker1.transform(image.getRaster());
+		r = invoker1.process(image.getRaster());
 		images.add(SwingUtil.rasterToImage(r));
 		
 		SwingUtil.showImages(image, images);
