@@ -4,7 +4,7 @@ import java.awt.image.WritableRaster;
 
 import com.corax.transformations.TransformationUtils;
 
-public class EdgeDetection implements IEdgeDetection {
+class EdgeDetection implements IEdgeDetection {
 
 	@Override
 	public WritableRaster detectEdges(WritableRaster source, int multiplier) {

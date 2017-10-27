@@ -4,7 +4,7 @@ import java.awt.image.WritableRaster;
 
 import com.corax.transformations.TransformationUtils;
 
-public class MatrixSharpen implements ISharpen {
+class MatrixSharpen implements ISharpen {
 
 	@Override
 	public WritableRaster sharp(WritableRaster source, float intensity) {

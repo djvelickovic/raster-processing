@@ -4,7 +4,7 @@ import java.awt.image.WritableRaster;
 
 import com.corax.transformations.TransformationUtils;
 
-public class Sampling implements ISampling {
+class Sampling implements ISampling {
 
 	@Override
 	public WritableRaster scale(WritableRaster raster, SamplingType samplingType, int scaleW, int scaleH) {

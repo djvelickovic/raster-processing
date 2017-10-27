@@ -2,7 +2,7 @@ package com.corax.transformations.vignette;
 
 import java.awt.image.WritableRaster;
 
-public class Vignette implements IVignette {
+class Vignette implements IVignette {
 
 	@Override
 	public WritableRaster vignette(WritableRaster source, float vignette,float distMultiplier) {

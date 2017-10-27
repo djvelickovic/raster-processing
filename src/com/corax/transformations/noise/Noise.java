@@ -2,7 +2,7 @@ package com.corax.transformations.noise;
 
 import java.awt.image.WritableRaster;
 
-public class Noise implements INoise {
+class Noise implements INoise {
 
 	@Override
 	public WritableRaster noise(WritableRaster source, NoiseType noiseType, float noiseIntensity) {
