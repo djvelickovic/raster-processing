@@ -23,32 +23,34 @@ public class TestTransformation {
 		
 		BufferedImage image = SwingUtil.loadImage(TestCommons.IMAGE_FILE);
 		
-		Transformation transformation = new Transformation();
-		
-		Transformation sharpen = new Transformation();
-		sharpen.addTransformation(new PosterizeInvoker(0.01f))
-			.addTransformation(new SharpenInvoker(0.8f));
-		
-		Transformation blurTransformations = new Transformation();
-		blurTransformations.addTransformation(new BlurInvoker(BlurInvoker.DEFAULT_GAUSSIAN_BLUR_ALGORITHM, 1))
-			.addTransformation(new VignetteInvoker(1f,1f));
-		
-		transformation.addTransformation(sharpen)
-			.addTransformation(new GrayscaleInvoker())
-			.addTransformation(blurTransformations);
-		
 		List<Image> images = new ArrayList<>();
-		
-		
-		
-		transformation.process(image.getRaster(),new ITransformationListener() {
+		ITransformationListener transformationListener = new ITransformationListener() {
 			
 			@Override
 			public void action(IProcessingInvoker transformationInvoker, WritableRaster result) {
 				BufferedImage bi = SwingUtil.rasterToImage(result);
 				images.add(bi);
 			}
-		});
+		};
+		
+		Transformation transformation = new Transformation();
+		
+		Transformation sharpen = new Transformation();
+		sharpen.addTransformation(new PosterizeInvoker(0.02f))
+			.addTransformation(new SharpenInvoker(0.6f))
+			.setTransformationListener(transformationListener);
+		
+		Transformation blurTransformations = new Transformation();
+		blurTransformations.addTransformation(new BlurInvoker(BlurInvoker.DEFAULT_GAUSSIAN_BLUR_ALGORITHM, 1))
+			.addTransformation(new VignetteInvoker(1f,1f))
+			.setTransformationListener(transformationListener);
+		
+		transformation.addTransformation(sharpen)
+			.addTransformation(new GrayscaleInvoker())
+			.addTransformation(blurTransformations)
+			.setTransformationListener(transformationListener);
+		
+		transformation.process(image.getRaster());
 		
 //		SwingUtil.showImages(image,SwingUtil.rasterToImage(r, image.getColorModel()));
 		

@@ -19,6 +19,17 @@ public class Transformation implements IProcessingInvoker {
 	 */
 	private LinkedList<IProcessingInvoker> transformationList;
 	
+	private ITransformationListener transformationListener;
+	
+	public Transformation setTransformationListener(ITransformationListener transformationListener) {
+		this.transformationListener = transformationListener;
+		return this;
+	}
+	
+	public ITransformationListener getTransformationListener() {
+		return transformationListener;
+	}
+	
 	public Transformation() {
 		transformationList = new LinkedList<>();
 	}
@@ -48,17 +59,6 @@ public class Transformation implements IProcessingInvoker {
 	
 	@Override
 	public WritableRaster process(WritableRaster source) {
-		return process(source, null);
-	}
-	
-	/**
-	 * Transforms raster
-	 * 
-	 * @param source
-	 * @param transformationListener
-	 * @return
-	 */
-	public WritableRaster process(WritableRaster source, ITransformationListener transformationListener) {
 		if (source == null) {
 			throw new IllegalArgumentException();
 		}
@@ -72,6 +72,4 @@ public class Transformation implements IProcessingInvoker {
 		}
 		return midRaster;
 	}
-	
-	
 }
