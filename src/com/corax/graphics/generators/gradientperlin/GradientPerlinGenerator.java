@@ -18,7 +18,7 @@ public class GradientPerlinGenerator implements IGradientPerlinGenerator {
 		int width = (int)Math.pow(octaveSize, octaves);
 		int height = width;
 		
-		WritableRaster target = RasterUtils.createRaster(width, height);
+		WritableRaster target = RasterUtils.createRasterWithAlpha(width, height);
 		
 		float[][] tempMap = new float[width][height];
 		
