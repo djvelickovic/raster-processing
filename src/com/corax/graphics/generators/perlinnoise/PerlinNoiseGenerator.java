@@ -9,7 +9,7 @@ public class PerlinNoiseGenerator implements IPerlinNoiseGenerator {
 
 
 	@Override
-	public WritableRaster generatePerlinNoise(int octaves, float persistence, int[] firstColor, int[] secondColor) {
+	public WritableRaster generatePerlinNoise(boolean alpha,int octaves, float persistence, int[] firstColor, int[] secondColor) {
 		if (octaves < 2 || persistence < 0.0f || persistence > 1.0f || firstColor.length < 3 || secondColor.length < 3) {
 			throw new IllegalArgumentException();
 		}
@@ -19,7 +19,16 @@ public class PerlinNoiseGenerator implements IPerlinNoiseGenerator {
 		int width = (int)Math.pow(octaveSize, octaves);
 		int height = width;
 
-		WritableRaster target = RasterUtils.createRaster(width, height);
+		
+		WritableRaster target;
+		
+		if (alpha) {
+			target = RasterUtils.createRasterWithAlpha(width, height);
+		}
+		else {
+			target = RasterUtils.createRaster(width, height);
+		}
+		
 
 		float[][] tempMap = new float[width][height];
 

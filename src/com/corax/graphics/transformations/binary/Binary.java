@@ -26,12 +26,11 @@ class Binary implements IBinary{
 			throw new IllegalArgumentException("Color numbers must be between 0 and 255");
 		}
 		
-		int[] rgb = new int[3];
-		
 		int border = (int)(255 * binaryPercent);
 		int gray;
 		
 		WritableRaster target = raster.createCompatibleWritableRaster();
+		int rgb[] = new int[target.getNumBands()];
 		
 		for (int y = 0; y < raster.getHeight(); y++) {
 			for (int x = 0; x < raster.getWidth(); x++) {

@@ -17,7 +17,7 @@ class Sampling implements ISampling {
 		int sourceH = raster.getHeight();
 				
 		WritableRaster target = RasterUtils.createRaster(scaleW, scaleH);		
-		int rgb[] = new int[3];
+		int rgb[] = new int[target.getNumBands()];
 		
 		for(int y = 0; y < scaleH; y++)
 		{

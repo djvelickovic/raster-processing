@@ -14,8 +14,8 @@ public class ZoomBlur implements IZoomBlur {
 		
 		WritableRaster target = source.createCompatibleWritableRaster();
 		
-		int rgb[] = new int[3];
-		int accum[] = new int[3];
+		int rgb[] = new int[target.getNumBands()];
+		int accum[] = new int[target.getNumBands()];
 		
 		// Centar zumiranja moze biti na proizvoljnoj poziciji, ovdje ga
 		// postavljamo na centar slike

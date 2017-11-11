@@ -15,8 +15,8 @@ class GaussianBlur implements IBlur {
 		WritableRaster temp = source.createCompatibleWritableRaster();
 		WritableRaster target = source.createCompatibleWritableRaster();
 		
-		int rgb[] = new int[3];
-		float accum[] = new float[3];
+		int rgb[] = new int[target.getNumBands()];
+		float accum[] = new float[target.getNumBands()];
 		
 		int width = source.getWidth();
 		int height = source.getHeight();

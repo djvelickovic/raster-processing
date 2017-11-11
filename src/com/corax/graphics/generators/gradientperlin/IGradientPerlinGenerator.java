@@ -11,5 +11,5 @@ public interface IGradientPerlinGenerator {
 	 * @param gradient matrix dimensions N x 3.
 	 * @return
 	 */
-	WritableRaster generateGradientPerlin(int octave, float persistece, int[][] gradient);
+	WritableRaster generateGradientPerlin(boolean alpha,int octave, float persistece, int[][] gradient);
 }

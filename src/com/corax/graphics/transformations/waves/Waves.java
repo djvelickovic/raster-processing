@@ -14,7 +14,7 @@ public class Waves implements IWaves {
 		
 		WritableRaster target = source.createCompatibleWritableRaster();
 		
-		int rgb[] = new int[3];
+		int rgb[] = new int[target.getNumBands()];
 		
 		for(int y = 0; y < source.getHeight(); y++)
 		{			

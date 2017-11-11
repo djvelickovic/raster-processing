@@ -8,7 +8,7 @@ import com.corax.graphics.util.TransformationUtils;
 public class GradientPerlinGenerator implements IGradientPerlinGenerator {
 
 	@Override
-	public WritableRaster generateGradientPerlin(int octaves, float persistence, int[][] gradient) {
+	public WritableRaster generateGradientPerlin(boolean alpha,int octaves, float persistence, int[][] gradient) {
 		if (octaves <= 2 || persistence < 0.0f || persistence > 1.0f) {
 			throw new IllegalArgumentException();
 		}
@@ -18,7 +18,16 @@ public class GradientPerlinGenerator implements IGradientPerlinGenerator {
 		int width = (int)Math.pow(octaveSize, octaves);
 		int height = width;
 		
-		WritableRaster target = RasterUtils.createRaster(width, height);
+		
+		
+		WritableRaster target;
+		
+		if (alpha) {
+			target = RasterUtils.createRasterWithAlpha(width, height);
+		}
+		else {
+			target = RasterUtils.createRaster(width, height);
+		}
 		
 		float[][] tempMap = new float[width][height];
 		

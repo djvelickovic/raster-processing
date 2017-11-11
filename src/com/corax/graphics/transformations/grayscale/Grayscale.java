@@ -12,10 +12,9 @@ class Grayscale implements IGrayscale {
 			throw new IllegalArgumentException();
 		}
 		
-		int[] rgb = new int[3];
 		int grayColor = 0;
 		WritableRaster target = raster.createCompatibleWritableRaster();
-		
+		int rgb[] = new int[target.getNumBands()];
 		for (int y = 0; y < raster.getHeight(); y++) {
 			for (int x = 0; x < raster.getWidth(); x++) {
 				raster.getPixel(x, y, rgb);

@@ -11,7 +11,7 @@ public class PelinOctavesTest {
 		IPerlinNoiseGenerator perlinNoise = new PerlinNoiseGenerator();
 		int[] firstColor = {255,255, 255};
 		int[] secondColor = {0,0, 0};
-		WritableRaster r = perlinNoise.generatePerlinNoise(9, 0.75f, firstColor, secondColor);
+		WritableRaster r = perlinNoise.generatePerlinNoise(true,9, 0.75f, firstColor, secondColor);
 		
 		SwingUtil.showImage(SwingUtil.rasterToImage(r));
 		

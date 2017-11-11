@@ -15,7 +15,7 @@ class AutoAdjust implements IAutoAdjust {
 		
 		WritableRaster target = source.createCompatibleWritableRaster();
 		
-		int rgb[] = new int[3];
+		int rgb[] = new int[target.getNumBands()];
 		int histo[] = new int[256];
 		
 		double cutOff = percent/100.0f;

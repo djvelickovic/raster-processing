@@ -13,10 +13,10 @@ class MatrixSharpen implements ISharpen {
 			throw new IllegalArgumentException();
 		}
 		
-		int rgb[] = new int[3];
-		int pixel[] = new int[3];
 		
 		WritableRaster target = source.createCompatibleWritableRaster();
+		int rgb[] = new int[target.getNumBands()];
+		int pixel[] = new int[target.getNumBands()];
 		
 		float matrix[][] = 
 		{

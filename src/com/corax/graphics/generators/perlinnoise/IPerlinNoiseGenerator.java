@@ -12,5 +12,5 @@ public interface IPerlinNoiseGenerator {
 	 * @param secondColor
 	 * @return
 	 */
-	WritableRaster generatePerlinNoise(int octaves, float persistence,int[] firstColor, int[] secondColor);
+	WritableRaster generatePerlinNoise(boolean alpha, int octaves, float persistence,int[] firstColor, int[] secondColor);
 }

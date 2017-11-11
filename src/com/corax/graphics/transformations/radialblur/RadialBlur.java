@@ -15,9 +15,8 @@ class RadialBlur implements IRadialBlur {
 		
 		
 		WritableRaster target = source.createCompatibleWritableRaster();
-		
-		int rgb[] = new int[3];
-		int accum[] = new int[3];
+		int rgb[] = new int[target.getNumBands()];
+		int accum[] = new int[target.getNumBands()];
 		
 		int centerX = source.getWidth() / 2;
 		int centerY = source.getHeight() / 2;

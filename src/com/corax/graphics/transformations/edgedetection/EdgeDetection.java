@@ -12,8 +12,8 @@ class EdgeDetection implements IEdgeDetection {
 			throw new IllegalArgumentException();
 		}
 		WritableRaster target = source.createCompatibleWritableRaster();
-		int center[] = new int[3];
-		int rgb[] = new int[3];
+		int rgb[] = new int[target.getNumBands()];
+		int center[] = new int[target.getNumBands()];
 		
 		for(int y = 1; y < source.getHeight() - 1; y++)
 		{

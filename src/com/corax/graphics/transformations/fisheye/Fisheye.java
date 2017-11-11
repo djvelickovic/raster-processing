@@ -17,7 +17,7 @@ class Fisheye implements IFisheye{
 		
 		WritableRaster target = source.createCompatibleWritableRaster();
 		
-		int rgb[] = new int[3];
+		int rgb[] = new int[target.getNumBands()];
 		
 		int centerX = source.getWidth() / 2;
 		int centerY = source.getHeight() / 2;

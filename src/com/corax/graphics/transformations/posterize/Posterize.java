@@ -21,12 +21,11 @@ class Posterize implements IPosterize {
 			throw new IllegalArgumentException("Intensitiy must be between 0.0 and 1.0");
 		}
 		
-		int[] rgb = new int[3];
 
 		int scale = (int) (255 * posterizeIntesity);
 
 		WritableRaster target = raster.createCompatibleWritableRaster();
-
+		int rgb[] = new int[target.getNumBands()];
 		for (int y = 0; y < raster.getHeight(); y++) {
 			for (int x = 0; x < raster.getWidth(); x++) {
 				raster.getPixel(x, y, rgb);

@@ -12,8 +12,7 @@ class Noise implements INoise {
 		
 		WritableRaster target = source.createCompatibleWritableRaster();
 		
-		int rgb[] = new int[3];
-		
+		int rgb[] = new int[target.getNumBands()];		
 		// Jacina noise efekta (u kom rasponu mijenjamo vrijednosti)
 		int noise = (int)(noiseIntensity * 255);
 		

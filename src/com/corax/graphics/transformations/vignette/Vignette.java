@@ -11,7 +11,7 @@ class Vignette implements IVignette {
 		}
 		WritableRaster target = source.createCompatibleWritableRaster();
 		
-		int rgb[] = new int[3];
+		int rgb[] = new int[target.getNumBands()];
 		
 		final double radius = Math.sqrt(2) / 2.0;
 		
